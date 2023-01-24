@@ -1,5 +1,6 @@
 body {
   background-color: black;
+  margin-left: 100px;
 }
 @font-face {
     font-family: SpaceGrotesk;
@@ -7,11 +8,36 @@ body {
   }
 
 p {
-  font-size: 100px;
+  margin-left: 129px;
+  padding-top: 100px;
+  font-size: 60px;
   font-family: SpaceGrotesk;
   font-weight: 600;
   color: white;
   background-color: black;
 }
+ 
+h2 {
+  font-family: SpaceGrotesk;
+  font-size: 20px;
+  color: white;
+}
 
+thead {
+  padding-top: 50px;
+}
 
+th, tr {
+  color: white;
+  font-family: SpaceGrotesk;
+  font-size: 30px;
+  line-height: 1.5;
+}
+
+.change-negative {
+  color: rgb(236, 17, 35);
+}
+
+.change-positive {
+  color: rgb(85, 243, 85);
+}

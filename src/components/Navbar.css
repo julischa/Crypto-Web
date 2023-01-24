@@ -10,14 +10,15 @@ body {
 }
 
 .header .container {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
+    display: flex; 
+    align-items: flex-end;
     height: 100%;
-    padding-left: 30px;
+    margin-left: 100px;
+    font-size: 20px;
 }
 
 .nav-menu {
+    font-family: SpaceGrotesk;
     display: flex;
     align-items: center;
     font-size: 20px;
@@ -31,7 +32,7 @@ body {
 }
 
 .btn-elements {
-    padding-left: 530px;
+   padding-left: 700px;
 }
 
 .btn {
@@ -41,7 +42,6 @@ body {
     font-size: 25px;
     background-color: blue;
     border-radius: 0;
-    cursor: pointer;
 }
 a:link {
   text-decoration: none;
@@ -65,4 +65,14 @@ a:active {
 
 .btn-elements:hover {
     color: white;
+}
+
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: blue;
+}
+
+::selection {
+  color: black;
+  background: blue;
 }
