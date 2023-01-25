@@ -6,8 +6,7 @@ import Navbar from './components/Navbar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import CoinsPage from './Pages/CoinsPage';
-//import Slider from 'react-slick';
-//import Coins from './components/Coins';
+import Coin from './Pages/Coin';
   
 function App() {
   return (
@@ -16,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='coins' element={<CoinsPage />} />
+        <Route path='coins/:coinName' element={<Coin />} />
         </Routes>
     </BrowserRouter>
 
