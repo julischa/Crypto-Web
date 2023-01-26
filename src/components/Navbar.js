@@ -4,9 +4,9 @@ import './Navbar.css'
 
 const Navbar = () => {
   return (
-      <div className='header'>
+      <nav className='header mb-5'>
           <div className='container'>
-              <div className='nav-menu'>
+              <div className='nav-menu mx-auto'>
                   <li>
                       <Link to='/'>Home</Link>
                   </li>
@@ -14,15 +14,17 @@ const Navbar = () => {
                       <Link to='/coins'>Coins</Link>
                   </li>
                   <li>
-                      <a href='/'>Blockchain</a>
+                      <a href='/'>NFT</a>
                   </li>
-                  <div className='btn-elements'>
-                      <button className='btn'>Connect Wallet</button>
-                      </div>
+                  <li>
+                 
+                        <Link to='/signup' className='bluebutton'>Login</Link>
+                      
+                    </li>
               </div>
           </div>
-    </div>
-  )
+    </nav>
+   )
 }
 
 export default Navbar

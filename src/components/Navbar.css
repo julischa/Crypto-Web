@@ -4,16 +4,13 @@ body {
 
 .header {
     width: 100%;
-    height: 90px;
-    background: black; 
+    height: 90px; 
 }
 
 .header .container {
     display: flex; 
-    align-items: flex-end;
+    align-items: center;
     height: 100%;
-    margin-left: 100px;
-    font-size: 20px;
 }
 
 .nav-menu {
@@ -29,36 +26,55 @@ body {
     font-size: 25px;
     color:white;
 }
-.btn {
+
+.bluebutton {
     display: flex;
     align-self: flex-end;
     color: white;
     font-size: 25px;
     background-color: blue;
     border-radius: 0;
+    padding: 2px 20px;
 }
+
+.bluebutton:hover {
+  background-color: transparent;
+}
+
+.btn-2 {
+  display: flex;
+  color: white;
+  background-color: blue;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 12px;
+  border-color: blue;
+  border-width: 0.5px;
+}
+
 a:link {
   text-decoration: none;
   color: white;
-  cursor: pointer;
 }
 
 a:visited {
   color: white;
+  border-color: blue;
 }
 
 a:hover {
-  cursor: pointer;
-  color: blue; 
+  color: white;
 }
 
-a:active {
-  color: blue;
-  cursor: pointer;
+.btn:focus {
+    outline: none;
 }
 
 .btn-elements:hover {
     color: white;
+    border-color: blue;
 }
 
 ::-moz-selection { /* Code for Firefox */
@@ -67,6 +83,51 @@ a:active {
 }
 
 ::selection {
-  color: black;
+  color: white;
   background: blue;
+}
+
+.table-hover tbody tr:hover {
+  background-color: aquamarine;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: -30px;
+  width: 75%;
+  height: 50px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.banner { 
+    position: absolute;
+    right: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    text-transform: uppercase;
+    
+}
+
+.banner article {
+    top: -20px;
+    width: 50px;
+    background-color: #fff;
+    padding: 2px 15px;
+    margin-right: 0px;
+    animation: move-banner 10s linear infinite;
+}
+
+@keyframes move-banner {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
