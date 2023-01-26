@@ -8,7 +8,7 @@ body {
   }
 
 p {
-  margin-left: 185px;
+  margin-left: 235px;
   padding-top: 100px;
   font-size: 60px;
   font-family: SpaceGrotesk;
@@ -46,18 +46,37 @@ h3 {
 }
 
 input {
+  font-family: SpaceGrotesk;
   width: 500px;
-  height: 200px;
+  height: 30px;
   font-size: 80px;
-  caret-color: aquamarine;
   background-color: black;
-  color: aquamarine;
-  border-radius: none;
-  border-color: aquamarine;
-  border: 0.5px;
+  border-color: white;
+  color: white;
+  border: 1px;
   box-shadow: none;
 }
 
+.input-chat {
+  font-family: SpaceGrotesk;
+  background-color: transparent;
+  width: 320px;
+  height: 40px;
+  font-size: 20px;
+  color: white;
+}
+
+.input-chat::placeholder {
+  color: white;
+}
+
+.inputbutton {
+  font-family: SpaceGrotesk;
+  color: white;
+  background-color: blue;
+  height: 40px;
+  border-color: blue;
+}
 
 table {
   padding-top: 50px;
