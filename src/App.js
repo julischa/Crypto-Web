@@ -14,7 +14,8 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <Banner/>
+      <Banner />
+      <Coin />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='coins' element={<CoinsPage />} />

@@ -35,7 +35,6 @@ const CoinsPage = () => {
                     <th scope="col"></th>
                     <th scope="col">Price</th>
                     <th scope="col">24h Volume</th>
-                    <th scope="col">Ohlc</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                   </tr>
@@ -51,7 +50,7 @@ const CoinsPage = () => {
                           coin.current_price < 0
                         }
                       >
-                        {coin.current_price.toFixed(1)} %
+                        {coin.current_price.toFixed(1)} $
                       </td>
                       <td
                         className={
@@ -62,7 +61,6 @@ const CoinsPage = () => {
                       >
                         {coin.price_change_percentage_24h.toFixed(1)} %
                       </td>
-                      <td>WIP</td>
                       <td>
                         <button className='btn-2' onClick={() => setSelectedCoin(coin)}>Prediction</button>
                       </td>

@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const HomePage = () => {
   return (
       <div>
           <p>Navigating the sea<br></br>
         of information
-          in crypto. </p>
+        in crypto. </p>
     </div>
   )
 }
