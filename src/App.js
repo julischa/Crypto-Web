@@ -15,7 +15,6 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Banner />
-      <Coin />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='coins' element={<CoinsPage />} />

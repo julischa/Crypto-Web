@@ -131,3 +131,12 @@ a:hover {
         transform: translateX(-100%);
     }
 }
+
+
+.modal-header {
+  background-color: blue;
+}
+
+.modal-dialog {
+  background-color: blue;
+}

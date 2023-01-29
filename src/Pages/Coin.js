@@ -19,10 +19,6 @@ const Coin = () => {
     fetchData();
   }, []);
 
-  if (!coin.length) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className='card'>
       <div className='card-header'>
