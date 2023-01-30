@@ -140,3 +140,8 @@ a:hover {
 .modal-dialog {
   background-color: blue;
 }
+
+input:focus{
+  border: none;
+  outline: none;
+}

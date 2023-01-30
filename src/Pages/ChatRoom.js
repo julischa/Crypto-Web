@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useFetcher, useNavigate } from "react-router-dom";
+import { UserContext } from "../Context/UserContext";
 
 const ChatRoom = (props) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [userName, setUserName] = useState("");
+
+  //extract user from UserContext
+  const { user } = useContext(UserContext)
+  
+  //use navigate hook
+  const redirectTo = useNavigate()
+
+  useEffect(() => {
+    if (user === '') {
+      redirectTo('/')
+    }
+  }, [user])
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,11 +31,10 @@ const ChatRoom = (props) => {
       <h2 className='text-center'>My prediction for {props.coin.name}:</h2>
       <br></br>
       <form className='text-center' onSubmit={handleSubmit}>
-        <input className="input-chat text-center" type="text" placeholder="my Nickname" value={userName} onChange={(e) => setUserName(e.target.value)} />
-        <br></br>
+       <br></br>
         <br></br>
         <input
-          className="input-chat text-center"
+          className="input-chat text-start"
           type="text"
           placeholder="my prediction"
           value={newMessage}
@@ -32,7 +46,7 @@ const ChatRoom = (props) => {
         {messages.map((message, index) => {
             const [userName, messageContent] = message.split(':')
             return (
-              <h3 className='text-center' key={index}>{userName}: {messageContent}</h3>
+              <h3 className='text-center' key={index}>{user}: {messageContent}</h3>
             )
           })}
       </div>
