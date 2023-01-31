@@ -6,11 +6,15 @@ const Register = () => {
   const { createUser } = useContext(UserContext);
 
   const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [register] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
+  };
+  const handleUserNameChange = (e) => {
+    setUserName(e.target.value);
   };
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -32,6 +36,16 @@ const Register = () => {
         E-Mail
       </label>
       <input
+        value={userName}
+        type="userName"
+        name="userName"
+        id="userName"
+        onChange={handleUserNameChange}
+      ></input>
+      <label className="text-light" htmlFor="userName">
+        User Name
+      </label>
+      <input
         value={password}
         type="password"
         name="password"
@@ -41,7 +55,9 @@ const Register = () => {
       <label htmlFor="password" className="text-light">
         Password
       </label>
-      <button onClick={() => createUser(email, password)}>Sign up now</button>
+      <button onClick={() => createUser(email, password, userName)}>
+        Sign up now
+      </button>
     </div>
   );
 };

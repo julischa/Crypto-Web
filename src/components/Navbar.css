@@ -145,3 +145,13 @@ input:focus{
   border: none;
   outline: none;
 }
+
+form {
+  font-family: SpaceGrotesk;
+}
+
+form button {
+  border-color: transparent;
+  display: flex; 
+  align-items: center;
+}

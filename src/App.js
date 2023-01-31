@@ -10,14 +10,13 @@ import Coin from "./Pages/Coin";
 import SignUp from "./Pages/SignUp";
 import Banner from "./components/Banner";
 import { UserContextProvider } from "./Context/UserContext";
-import { app } from "./config/firebaseConfig";
 import Register from "./Pages/Register";
 
 function App() {
   //console.log(app);
   return (
-    <UserContextProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <UserContextProvider>
         <Navbar />
         <Banner />
         <Routes>
@@ -27,8 +26,8 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="register" element={<Register />} />
         </Routes>
-      </BrowserRouter>
-    </UserContextProvider>
+      </UserContextProvider>
+    </BrowserRouter>
   );
 }
 

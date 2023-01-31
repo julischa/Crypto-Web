@@ -1,30 +1,40 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './Navbar.css'
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../Context/UserContext";
+import "./Navbar.css";
+//import useContext, userContext
 
 const Navbar = () => {
-  return (
-      <nav className='header mb-5'>
-          <div className='container'>
-              <div className='nav-menu mx-auto'>
-                  <li>
-                      <Link to='/'>Home</Link>
-                  </li>
-                  <li>
-                      <Link to='/coins'>Coins</Link>
-                  </li>
-                  <li>
-                      <a href='/'>NFT</a>
-                  </li>
-                  <li>
-                 
-                        <Link to='/signup' className='bluebutton'>Login</Link>
-                      
-                    </li>
-              </div>
-          </div>
-    </nav>
-   )
-}
+  const { user, logout } = useContext(UserContext);
 
-export default Navbar
+  //extract user from userContext
+
+  return (
+    <nav className="header mb-5">
+      <div className="container">
+        <div className="nav-menu mx-auto">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/coins">Coins</Link>
+          </li>
+          <li>
+            <a href="/">NFT</a>
+          </li>
+          <li>
+            {user ? (
+              <button onClick={logout}>Logout</button>
+            ) : (
+              <Link to="/signup" className="bluebutton">
+                Login
+              </Link>
+            )}
+          </li>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

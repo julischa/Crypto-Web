@@ -17,3 +17,6 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export default app;
+
+//assert.ts:136 Uncaught (in promise) FirebaseError: Firebase: Error (auth/api-key-not-valid.-please-pass-a-valid-api-key.)

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useFetcher, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
 
 const ChatRoom = (props) => {
@@ -8,30 +8,29 @@ const ChatRoom = (props) => {
   const [userName, setUserName] = useState("");
 
   //extract user from UserContext
-  const { user } = useContext(UserContext)
-  
+  const { user } = useContext(UserContext);
+
   //use navigate hook
-  const redirectTo = useNavigate()
+  const redirectTo = useNavigate();
 
   useEffect(() => {
-    if (user === '') {
-      redirectTo('/')
+    if (user === "") {
+      redirectTo("/");
     }
-  }, [user])
-  
+  }, [user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMessages([...messages, userName + ': ' + newMessage]);
+    setMessages([...messages, userName + ": " + newMessage]);
     setNewMessage("");
   };
 
   return (
     <div>
-      <h2 className='text-center'>My prediction for {props.coin.name}:</h2>
+      <h2 className="text-center">My prediction for {props.coin.name}:</h2>
       <br></br>
-      <form className='text-center' onSubmit={handleSubmit}>
-       <br></br>
+      <form className="text-center" onSubmit={handleSubmit}>
+        <br></br>
         <br></br>
         <input
           className="input-chat text-start"
@@ -40,16 +39,21 @@ const ChatRoom = (props) => {
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
         />
-        <button className='inputbutton' type="submit">Comment</button>
-        <br></br><br></br>
+        <button className="inputbutton" type="submit">
+          Comment
+        </button>
+        <br></br>
+        <br></br>
         <div>
-        {messages.map((message, index) => {
-            const [userName, messageContent] = message.split(':')
+          {messages.map((message, index) => {
+            const [userName, messageContent] = message.split(":");
             return (
-              <h3 className='text-center' key={index}>{user}: {messageContent}</h3>
-            )
+              <h3 className="text-center" key={index}>
+                {user.displayName}: {messageContent}
+              </h3>
+            );
           })}
-      </div>
+        </div>
       </form>
     </div>
   );
