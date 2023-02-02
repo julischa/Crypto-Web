@@ -32,16 +32,24 @@ const ChatRoom = (props) => {
       <form className="text-center" onSubmit={handleSubmit}>
         <br></br>
         <br></br>
-        <input
-          className="input-chat text-start"
-          type="text"
-          placeholder="my prediction"
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-        />
-        <button className="inputbutton" type="submit">
-          Comment
-        </button>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <input
+            className="input-chat text-start"
+            type="text"
+            placeholder="my prediction"
+            value={newMessage}
+            onChange={(e) => setNewMessage(e.target.value)}
+          />
+          <button className="inputbutton" type="submit">
+            Comment
+          </button>
+        </div>
         <br></br>
         <br></br>
         <div>

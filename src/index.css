@@ -1,17 +1,18 @@
 body {
-  background-color: black;
+  background-color: black!important;
   margin-left: 100px;
 }
+
 @font-face {
     font-family: SpaceGrotesk;
     src: url(SpaceGrotesk-VariableFont_wght.ttf);
   }
 
 p {
+  font-family: SpaceGrotesk;
   margin-left: 185px;
   padding-top: 100px;
   font-size: 60px;
-  font-family: SpaceGrotesk;
   font-weight: 600;
   color: white;
 }
@@ -32,7 +33,6 @@ p {
   }
 }
 
-
 h2 {
   font-family: SpaceGrotesk;
   font-size: 20px;
@@ -45,28 +45,15 @@ h3 {
   color: white;
 }
 
-input {
-  font-family: SpaceGrotesk;
-  width: 500px;
-  height: 30px;
-  font-size: 80px;
-  background-color: black;
-  border-color: white;
-  color: white;
-  border: 1px;
-  box-shadow: none;
-}
-
 .input-chat {
   font-family: SpaceGrotesk;
-  background-color: transparent;
   width: 320px;
   height: 40px;
   font-size: 20px;
-  color: white;
 }
 
 .input-chat::placeholder {
+  font-family: SpaceGrotesk;
   color: white;
 }
 
@@ -81,7 +68,6 @@ input {
 table {
   padding-top: 50px;
 }
-
 
 tr {
   color: white;
@@ -102,4 +88,144 @@ tr {
 
 .star {
   padding-right: 30px;
+}
+
+.header {
+  background-color: black;
+  width: 100%;
+  height: 90px;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-menu {
+  font-family: SpaceGrotesk;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.nav-menu li {
+  font-family: SpaceGrotesk;
+  list-style: none;
+  padding: 20px;
+  font-size: 25px;
+  color: white;
+}
+
+.btn-2 {
+  display: flex;
+  align-items: center;
+  font-family: SpaceGrotesk;
+  color: white;
+  background-color: blue;
+  border-radius: 0;
+  border-color: blue;
+  border-width: 0.5px;
+  font-size: 12px;
+  padding: 2px 15px;
+}
+
+.bluebutton:hover,
+.btn-2:hover {
+  background-color: blue;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: white;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+::-moz-selection,
+::selection {
+  color: white;
+  background: blue;
+}
+
+.table-hover tbody tr:hover {
+  background-color: aquamarine;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: -30px;
+  width: 75%;
+  height: 50px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.banner {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.banner article {
+  top: -20px;
+  width: 50px;
+  background-color: #fff;
+  padding: 2px 15px;
+  margin-right: 0px;
+  animation: move-banner 10s linear infinite;
+}
+
+@keyframes move-banner {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.modal-header,
+.modal-dialog {
+  background-color: blue;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+}
+
+form {
+  font-family: SpaceGrotesk;
+}
+
+form button {
+  border-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.bluebutton {
+    display: flex;
+    align-self: flex-end;
+    color: white;
+    font-size: 25px;
+    background-color: blue;
+    border-color: transparent;
+    border-radius: 0;
+    padding: 2px 20px;
 }

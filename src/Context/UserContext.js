@@ -31,7 +31,6 @@ const UserContextProvider = ({ children }) => {
         // photoURL: "https://example.com/jane-q-user/profile.jpg",
       });
       console.log("updatedUser", updatedUser);
-      alert("register succesful");
       setUser(newUser.user);
       redirectTo("/", { replace: true });
     } catch (error) {

@@ -21,43 +21,49 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h1 className="form-container d-flex justify-content-center text-light">
-        Sign up
-      </h1>
-      <input
-        value={email}
-        type="email"
-        name="email"
-        id="email"
-        onChange={handleEmailChange}
-      ></input>
-      <label className="text-light" htmlFor="email">
-        E-Mail
-      </label>
-      <input
-        value={userName}
-        type="userName"
-        name="userName"
-        id="userName"
-        onChange={handleUserNameChange}
-      ></input>
-      <label className="text-light" htmlFor="userName">
-        User Name
-      </label>
-      <input
-        value={password}
-        type="password"
-        name="password"
-        id="password"
-        onChange={handlePasswordChange}
-      ></input>
-      <label htmlFor="password" className="text-light">
-        Password
-      </label>
-      <button onClick={() => createUser(email, password, userName)}>
-        Sign up now
-      </button>
+    <div className="d-flex justify-content-center">
+      <div className="form-container p-5">
+        <h1 className="text-light text-center">Sign up</h1>
+        <label className="text-light" htmlFor="email">
+          E-Mail
+        </label>
+        <input
+          className="form-control rounded-0 mb-3"
+          value={email}
+          type="email"
+          name="email"
+          id="email"
+          onChange={handleEmailChange}
+        ></input>
+        <label className="text-light" htmlFor="userName">
+          User Name
+        </label>
+        <input
+          className="form-control rounded-0 mb-3"
+          value={userName}
+          type="userName"
+          name="userName"
+          id="userName"
+          onChange={handleUserNameChange}
+        ></input>
+        <label htmlFor="password" className="text-light">
+          Password
+        </label>
+        <input
+          className="form-control rounded-0 mb-3"
+          value={password}
+          type="password"
+          name="password"
+          id="password"
+          onChange={handlePasswordChange}
+        ></input>
+        <button
+          className="btn-2 my-5"
+          onClick={() => createUser(email, password, userName)}
+        >
+          Sign up now
+        </button>
+      </div>
     </div>
   );
 };
