@@ -12,25 +12,77 @@ p {
   font-family: SpaceGrotesk;
   margin-left: 185px;
   padding-top: 100px;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 600;
   color: white;
 }
  
-p {
-  animation: slideUp 1s ease-in-out;
-  animation-fill-mode: both;
+p.p1 {
+font-family: SpaceGrotesk;
+margin-left: 185px;
+padding-top: 30px;
+font-size: 50px;
+font-weight: 600;
+color: white;
+animation: slideUp 1s ease-in-out;
+animation-fill-mode: both;
+}
+
+
+p.p2 {
+text-align: right;
+margin-right: 185px;
+padding-top: 30px;
+font-size: 50px;
+font-weight: 600;
+color: white;
+animation: slideUp 1s ease-in-out 1s;
+animation-fill-mode: both;
+}
+
+.btn-container {
+  display: flex; 
+  justify-content: center;
+}
+
+button.register-btn {
+font-family: SpaceGrotesk;
+font-size: 35px;
+font-weight: 600;
+background-color: blue;
+margin-top: 50px;
+padding-left: 20px;
+padding-right: 20px;
+color: white;
+border: none;
+cursor: pointer;
+animation: appear 1s ease-in-out 2s;
+animation-fill-mode: both;
 }
 
 @keyframes slideUp {
-  from {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+from {
+transform: translateY(100px);
+opacity: 0;
+}
+to {
+transform: translateY(0);
+opacity: 1;
+}
+}
+
+@keyframes appear {
+from {
+opacity: 0;
+}
+to {
+display: block;
+opacity: 1;
+}
+}
+
+h1 {
+  font-family: SpaceGrotesk;
 }
 
 h2 {
@@ -65,10 +117,6 @@ h3 {
   border-color: blue;
 }
 
-table {
-  padding-top: 50px;
-}
-
 tr {
   color: white;
   font-family: SpaceGrotesk;
@@ -81,9 +129,6 @@ tr {
 
 .change-positive {
   color: aquamarine;
-}
-@media screen and (max-width:768px) {
-
 }
 
 .star {
@@ -109,6 +154,11 @@ tr {
   font-size: 20px;
 }
 
+.nav-menu a:active,
+.nav-menu a:hover {
+color: aquamarine;
+}
+
 .nav-menu li {
   font-family: SpaceGrotesk;
   list-style: none;
@@ -130,7 +180,7 @@ tr {
   padding: 2px 15px;
 }
 
-.bluebutton:hover,
+.loginbutton:hover,
 .btn-2:hover {
   background-color: blue;
 }
@@ -142,7 +192,11 @@ a:visited {
 }
 
 a:hover {
-  color: white;
+  color: aquamarine;
+}
+
+a:active {
+  color: aquamarine;
 }
 
 .btn:focus {
@@ -219,13 +273,80 @@ form button {
   align-items: center;
 }
 
-.bluebutton {
+.loginbutton {
     display: flex;
     align-self: flex-end;
-    color: white;
+    color: black;
     font-size: 25px;
-    background-color: blue;
+    background-color: white;
     border-color: transparent;
-    border-radius: 0;
+    border-radius: 10;
     padding: 2px 20px;
+}
+
+
+
+@media screen and (max-width:768px) {
+body {
+margin-left: 20px;
+}
+
+p.p1,
+p.p2 {
+margin-left: 30px;
+margin-right: 30px;
+font-size: 30px;
+padding-top: 50px;
+width: 300px;
+}
+
+.input-chat {
+width: 200px;
+font-size: 15px;
+height: 30px;
+}
+
+.inputbutton {
+  height: 28px;
+}
+
+h2 {
+font-size: 15px;
+}
+
+h3 {
+font-size: 10px;
+}
+
+tr {
+font-size: 15px;
+}
+
+.nav-menu li {
+font-size: 20px;
+padding: 10px;
+}
+
+.btn-2 {
+font-size: 15px;
+padding: 2px 10px;
+}
+
+.bluebutton {
+  font-size: 20px;
+}
+
+.header {
+height: 70px;
+}
+
+.wrapper {
+width: 90%;
+height: 40px;
+top: -20px;
+}
+
+.banner {
+  display: none;
+}
 }

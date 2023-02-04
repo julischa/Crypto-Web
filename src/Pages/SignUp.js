@@ -25,36 +25,39 @@ function Login() {
   return (
     <div>
       <div className="form-container d-flex justify-content-center text-light">
-        <form
-          className="form"
-          onSubmit={(event) => handleSubmit(event, email, password)}
-        >
-          <div className="form-group">
-            <label>Email</label>
-            <input
-              className="form-control rounded-0"
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              className="form-control rounded-0"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <button className="bluebutton">Log in</button>
-          <div className="form-group">
-            <label className="me-4">No account? </label>
-            <Link to="/register">Register now</Link>
-          </div>
-        </form>
+        <div className="form-container p-5">
+          <h1 className="text-center text-light">Sign into your account</h1>
+          <form
+            className="form"
+            onSubmit={(event) => handleSubmit(event, email, password)}
+          >
+            <div className="form-group">
+              <label>Email</label>
+              <input
+                className="form-control rounded-0 mb-2"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                className="form-control rounded-0 mb-2"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <button className="btn-2 my-4">Log in</button>
+            <div className="form-group">
+              <label className="me-4">No account? </label>
+              <Link to="/register">Register now</Link>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

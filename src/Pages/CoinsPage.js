@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import ChatRoom from "./ChatRoom";
-import { Modal } from "react-bootstrap";
+//import { Modal } from "react-bootstrap";
 import { UserContext } from "../Context/UserContext";
 
 const CoinsPage = () => {
@@ -12,7 +12,7 @@ const CoinsPage = () => {
   console.log("user", user);
 
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  //const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   //const handleShow = (coin) => {
@@ -80,34 +80,39 @@ const CoinsPage = () => {
                   <td>
                     <button
                       className="btn-2"
-                      onClick={() => setSelectedCoin(coin)}
+                      onClick={() =>
+                        user
+                          ? setSelectedCoin(coin)
+                          : window.location.replace("/signup")
+                      }
                     >
                       Prediction
                     </button>
                   </td>
                   <td>
-                    <button className="btn-2">Trade now</button>
+                    <button
+                      className="btn-2"
+                      onClick={() =>
+                        user
+                          ? setSelectedCoin(coin)
+                          : window.location.replace("/signup")
+                      }
+                    >
+                      Trade now
+                    </button>
                   </td>
-                  <Modal show={show} size="lg" onHide={handleClose}>
+                  {/* <Modal show={show} size="lg" onHide={handleClose}>
                     <Modal.Header>
                       <Modal.Title>
                         <h1>{coin.name}</h1>
                       </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>Not working correctly yet</Modal.Body>
-                  </Modal>
+                  </Modal> */}
                 </tr>
               ))}
             </tbody>
           </table>
-          {/* <Modal show={show} size="lg" onHide={handleClose}>
-            <Modal.Header>
-              <Modal.Title>
-                <h1>hfdhfjdh</h1>
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>:(</Modal.Body>
-          </Modal> */}
         </div>
       )}
     </div>

@@ -7,6 +7,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { firebaseErrors } from "../utils/firebaseErrors";
 
 const UserContext = createContext();
 
@@ -14,10 +15,13 @@ const UserContext = createContext();
 const UserContextProvider = ({ children }) => {
   const redirectTo = useNavigate();
   const [user, setUser] = useState("");
+  const [error, setError] = useState("");
 
   //this fn needs to be async or work this .then()
-  const createUser = async (email, password, userName) => {
-    console.log("userName", userName);
+  const createUser = async (userName, email, password) => {
+    // console.log("userName", userName);
+    // console.log("email", email);
+    // console.log("password", password);
     try {
       const newUser = await createUserWithEmailAndPassword(
         auth,
@@ -34,7 +38,9 @@ const UserContextProvider = ({ children }) => {
       setUser(newUser.user);
       redirectTo("/", { replace: true });
     } catch (error) {
-      console.log("error :>> ", error);
+      //if there is an error i set the property message to my error state
+      setError(firebaseErrors(error.message));
+      //setError(error.message);
     }
   };
 
@@ -48,10 +54,7 @@ const UserContextProvider = ({ children }) => {
         // ...
         console.log("userCredential.user :>> ", userCredential.user);
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+      .catch((error) => {});
 
     //redirectTo("/");
   };
@@ -62,7 +65,9 @@ const UserContextProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, setUser, createUser, login, logout }}>
+    <UserContext.Provider
+      value={{ user, setUser, createUser, login, logout, error }}
+    >
       {children}
     </UserContext.Provider>
   );

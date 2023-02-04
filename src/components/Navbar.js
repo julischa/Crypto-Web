@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
 
 const Navbar = () => {
   const { user, logout } = useContext(UserContext);
-  const location = useLocation();
+
+  //extract user from userContext
 
   return (
     <nav className="header mb-5">
@@ -19,24 +20,27 @@ const Navbar = () => {
           <li>
             <a href="/">NFT</a>
           </li>
-          <li>
-            {user ||
-            location.pathname === "/signup" ||
-            location.pathname === "/register" ? (
-              ""
-            ) : (
-              <Link to="/signup" className="bluebutton">
-                Login
-              </Link>
-            )}
-            {user ? (
+          {user ? (
+            <li>
               <button className="bluebutton" onClick={logout}>
                 Logout
               </button>
-            ) : (
-              ""
-            )}
-          </li>
+            </li>
+          ) : (
+            <li>
+              <Link
+                to={
+                  window.location.pathname === "/signup" ||
+                  window.location.pathname === "/register"
+                    ? ""
+                    : "/signup"
+                }
+                className="bluebutton"
+              >
+                Login
+              </Link>
+            </li>
+          )}
         </div>
       </div>
     </nav>
