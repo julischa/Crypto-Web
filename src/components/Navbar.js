@@ -5,8 +5,6 @@ import { UserContext } from "../Context/UserContext";
 const Navbar = () => {
   const { user, logout } = useContext(UserContext);
 
-  //extract user from userContext
-
   return (
     <nav className="header mb-5">
       <div className="container">
@@ -17,27 +15,25 @@ const Navbar = () => {
           <li>
             <Link to="/coins">Coins</Link>
           </li>
-          <li>
-            <a href="/">NFT</a>
-          </li>
           {user ? (
             <li>
-              <button className="bluebutton" onClick={logout}>
-                Logout
-              </button>
+              <Link onClick={logout}>Welcome, {user.displayName}!</Link>
             </li>
           ) : (
             <li>
               <Link
                 to={
-                  window.location.pathname === "/signup" ||
+                  window.location.pathname === "/login" ||
                   window.location.pathname === "/register"
                     ? ""
-                    : "/signup"
+                    : "/login"
                 }
                 className="bluebutton"
               >
-                Login
+                {window.location.pathname === "/login" ||
+                window.location.pathname === "/register"
+                  ? ""
+                  : "Login"}
               </Link>
             </li>
           )}

@@ -2,10 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import ChatRoom from "./ChatRoom";
 //import { Modal } from "react-bootstrap";
 import { UserContext } from "../Context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const CoinsPage = () => {
   const [coins, setCoins] = useState([]);
   const [selectedCoin, setSelectedCoin] = useState(null);
+  const navigate = useNavigate(); //navigate hook to reload and not trigger a full page reload
 
   //extract user from context
   const { user } = useContext(UserContext);
@@ -45,9 +47,9 @@ const CoinsPage = () => {
             <thead className="thead">
               <tr>
                 <th scope="col"></th>
-                <th scope="col">Coin</th>
                 <th scope="col"></th>
-                <th scope="col">Price</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
                 <th scope="col">24h Volume</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
@@ -81,24 +83,20 @@ const CoinsPage = () => {
                     <button
                       className="btn-2"
                       onClick={() =>
-                        user
-                          ? setSelectedCoin(coin)
-                          : window.location.replace("/signup")
+                        user ? setSelectedCoin(coin) : navigate("/login")
                       }
                     >
-                      Prediction
+                      Predict
                     </button>
                   </td>
                   <td>
                     <button
                       className="btn-2"
                       onClick={() =>
-                        user
-                          ? setSelectedCoin(coin)
-                          : window.location.replace("/signup")
+                        user ? setSelectedCoin(coin) : navigate("/login")
                       }
                     >
-                      Trade now
+                      Trade
                     </button>
                   </td>
                   {/* <Modal show={show} size="lg" onHide={handleClose}>

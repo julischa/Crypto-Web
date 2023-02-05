@@ -32,31 +32,26 @@ const UserContextProvider = ({ children }) => {
 
       const updatedUser = await updateProfile(auth.currentUser, {
         displayName: userName,
-        // photoURL: "https://example.com/jane-q-user/profile.jpg",
       });
       console.log("updatedUser", updatedUser);
       setUser(newUser.user);
       redirectTo("/", { replace: true });
     } catch (error) {
-      //if there is an error i set the property message to my error state
       setError(firebaseErrors(error.message));
-      //setError(error.message);
     }
   };
 
   const login = (email, password) => {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+    return signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         setUser(userCredential.user);
         redirectTo("/");
-        // ...
         console.log("userCredential.user :>> ", userCredential.user);
       })
-      .catch((error) => {});
-
-    //redirectTo("/");
+      .catch((error) => {
+        setError(firebaseErrors(error.message));
+      });
   };
 
   const logout = () => {

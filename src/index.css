@@ -176,7 +176,7 @@ color: aquamarine;
   border-radius: 0;
   border-color: blue;
   border-width: 0.5px;
-  font-size: 12px;
+  font-size: 15px;
   padding: 2px 15px;
 }
 
@@ -284,6 +284,20 @@ form button {
     padding: 2px 20px;
 }
 
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  border-radius: 0px;
+  border: 1px solid aquamarine;
+}
+
+input[type="checkbox"]:checked {
+  background-color: aquamarine;
+}
+
+input[type="checkbox"]:active {
+  background-color: aquamarine;
+}
 
 
 @media screen and (max-width:768px) {
@@ -328,8 +342,9 @@ padding: 10px;
 }
 
 .btn-2 {
-font-size: 15px;
+font-size: 10px;
 padding: 2px 10px;
+word-wrap: none;
 }
 
 .bluebutton {
@@ -349,4 +364,38 @@ top: -20px;
 .banner {
   display: none;
 }
+
+  .thead th:nth-child(3) {
+    display: none;
+  }
+
+   .thead th:nth-child(2) {
+    display: none;
+  }
+
+  .thead th:nth-child(4) {
+    display: none;
+  }
+
+  tr td:nth-child(3) {
+    display: none;
+  }
+  
+  tr td:nth-child(2) {
+    display: none;
+  }
+
+  tr td:nth-child(4) {
+    display: none;
+  }
+
+    tr td:first-child {
+    display: none;
+  }
+  
+  .star {
+    display: none;
+  }
+
+
 }

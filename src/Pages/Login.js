@@ -1,26 +1,24 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
-//import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  //extract login function from userContext
-  const { login } = useContext(UserContext);
-  //const redirectTo = useNavigate()
+  const { login, user } = useContext(UserContext);
 
   function handleSubmit(event, email, password) {
     event.preventDefault();
-    login(email, password);
+    login(email, password)
+      .then(() => {
+        console.log("User logged in successfully");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   }
-
-  // the useEffect acts like a listener, that senses changes
-  //in states, in this case listens to changes in user that comes from UserContext
-  //useEffect(() => {
-  //    if (user !== '') redirectTo("/")
-  //}, [user])
 
   return (
     <div>
@@ -35,7 +33,7 @@ function Login() {
               <label>Email</label>
               <input
                 className="form-control rounded-0 mb-2"
-                type="text"
+                type="text" //email
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -51,10 +49,13 @@ function Login() {
                 required
               />
             </div>
+            {error && <p className="text-danger">{error}</p>}
             <button className="btn-2 my-4">Log in</button>
             <div className="form-group">
               <label className="me-4">No account? </label>
-              <Link to="/register">Register now</Link>
+              <Link to="/register" id="register-link">
+                Register now
+              </Link>
             </div>
           </form>
         </div>

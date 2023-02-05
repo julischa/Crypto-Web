@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import CoinsPage from "./Pages/CoinsPage";
 import Coin from "./Pages/Coin";
-import SignUp from "./Pages/SignUp";
+import Login from "./Pages/Login";
 import Banner from "./components/Banner";
 import { UserContextProvider } from "./Context/UserContext";
 import Register from "./Pages/Register";
@@ -23,7 +23,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="coins" element={<CoinsPage />} />
           <Route path="coins/:coinName" element={<Coin />} />
-          <Route path="signup" element={<SignUp />} />
+          <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Routes>
       </UserContextProvider>

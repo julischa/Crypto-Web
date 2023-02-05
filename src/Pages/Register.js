@@ -2,11 +2,13 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../Context/UserContext";
 
 const Register = () => {
-  const { createUser, error } = useContext(UserContext);
+  const { createUser } = useContext(UserContext);
 
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -18,7 +20,11 @@ const Register = () => {
     setPassword(e.target.value);
   };
 
-  const handleCreateUser = (event) => {
+  const handleCreateUser = (e) => {
+    if (!isChecked) {
+      setError("Please acknowledge the terms and conditions");
+      return;
+    }
     createUser(userName, email, password);
   };
 
@@ -54,11 +60,15 @@ const Register = () => {
           onChange={handleEmailChange}
           style={{
             fontFamily: "SpaceGrotesk",
-            borderColor: error ? "aquamarine" : "",
           }}
         ></input>
-        {error && <div style={{ color: "aquamarine" }}>{error}</div>}
-        <label htmlFor="password" className="text-light">
+        <label
+          htmlFor="password"
+          className="text-light"
+          style={{
+            fontFamily: "SpaceGrotesk",
+          }}
+        >
           Password
         </label>
         <input
@@ -69,9 +79,20 @@ const Register = () => {
           id="password"
           onChange={handlePasswordChange}
         ></input>
+        <div>
+          <input
+            type="checkbox"
+            id="terms"
+            onClick={() => setIsChecked(!isChecked)}
+          />
+          <label className="mx-2" htmlFor="terms">
+            I acknowledge the terms and conditions
+          </label>
+        </div>
         <button className="btn-2 my-4" onClick={handleCreateUser}>
           Sign up now
         </button>
+        {error && <div style={{ color: "aquamarine" }}>{error}</div>}
       </div>
     </div>
   );

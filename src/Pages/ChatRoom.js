@@ -1,37 +1,52 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
+import { db } from "../firebase";
 
 const ChatRoom = (props) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-  const [userName, setUserName] = useState("");
 
-  //extract user from UserContext
+  // extract user from UserContext
   const { user } = useContext(UserContext);
 
-  //use navigate hook
+  // use navigate hook
   const redirectTo = useNavigate();
 
   useEffect(() => {
-    if (user === "") {
+    if (!user) {
       redirectTo("/");
     }
-  }, [user]);
+
+    const unsubscribe = db
+      .collection("messages")
+      .where("coinName", "==", props.coin.name)
+      .onSnapshot((snapshot) => {
+        setMessages(
+          snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        );
+      });
+
+    return () => unsubscribe();
+  }, [props.coin.name, user, redirectTo]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMessages([...messages, userName + ": " + newMessage]);
+    db.collection("messages").add({
+      coinName: props.coin.name,
+      userDisplayName: user.displayName,
+      message: newMessage,
+    });
     setNewMessage("");
   };
 
   return (
     <div>
       <h2 className="text-center">My prediction for {props.coin.name}:</h2>
-      <br></br>
+      <br />
       <form className="text-center" onSubmit={handleSubmit}>
-        <br></br>
-        <br></br>
+        <br />
+        <br />
         <div
           style={{
             display: "flex",
@@ -50,17 +65,14 @@ const ChatRoom = (props) => {
             Comment
           </button>
         </div>
-        <br></br>
-        <br></br>
+        <br />
+        <br />
         <div>
-          {messages.map((message, index) => {
-            const [userName, messageContent] = message.split(":");
-            return (
-              <h3 className="text-center" key={index}>
-                {user.displayName}: {messageContent}
-              </h3>
-            );
-          })}
+          {messages.map((message) => (
+            <h3 className="text-center" key={message.id}>
+              {message.userDisplayName}: {message.message}
+            </h3>
+          ))}
         </div>
       </form>
     </div>
