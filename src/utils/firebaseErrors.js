@@ -1,5 +1,6 @@
 //this function recieves an error from UserContext
 export const firebaseErrors = (msg) => {
+  //console.log(msg);
   switch (msg) {
     case "Firebase: Error (auth/email-already-in-use).": {
       return "Email already in use";
@@ -7,6 +8,10 @@ export const firebaseErrors = (msg) => {
 
     case "Firebase: Password should be at least 6 characters (auth/weak-password).": {
       return "*Password must be at least 6 characters";
+    }
+
+    case "Firebase: Error (auth/invalid-email).": {
+      return "*Invalid email";
     }
 
     default: {

@@ -2,12 +2,11 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../Context/UserContext";
 
 const Register = () => {
-  const { createUser } = useContext(UserContext);
+  const { createUser, error, setError } = useContext(UserContext);
 
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const [isChecked, setIsChecked] = useState(false);
 
   const handleEmailChange = (e) => {

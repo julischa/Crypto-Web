@@ -1,52 +1,78 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
-import { db } from "../firebase";
+import { db } from "../config/firebaseConfig";
+import {
+  doc,
+  setDoc,
+  addDoc,
+  collection,
+  query,
+  getDocs,
+} from "firebase/firestore";
 
 const ChatRoom = (props) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-
-  // extract user from UserContext
+  const [userName, setUserName] = useState("");
+  //extract user from UserContext
   const { user } = useContext(UserContext);
+  //console.log(props.coin);
 
-  // use navigate hook
+  //use navigate hook
   const redirectTo = useNavigate();
 
   useEffect(() => {
-    if (!user) {
+    if (user === "") {
       redirectTo("/");
     }
+  }, [user]);
 
-    const unsubscribe = db
-      .collection("messages")
-      .where("coinName", "==", props.coin.name)
-      .onSnapshot((snapshot) => {
-        setMessages(
-          snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-        );
-      });
+  useEffect(() => {
+    const getComments = async () => {
+      try {
+        const q = query(collection(db, "Chat", props.coin.id, "Comments"));
 
-    return () => unsubscribe();
-  }, [props.coin.name, user, redirectTo]);
+        const querySnapshot = await getDocs(q);
+        const commentsArray = [];
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+          commentsArray.push(doc.data());
+        });
+        setMessages(commentsArray);
+      } catch (mistake) {
+        console.log(mistake);
+      }
+    };
 
-  const handleSubmit = (e) => {
+    getComments();
+  }, [props.coin]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    db.collection("messages").add({
-      coinName: props.coin.name,
-      userDisplayName: user.displayName,
-      message: newMessage,
-    });
+    setMessages([...messages, userName + ": " + newMessage]);
     setNewMessage("");
+
+    const messageObject = { author: user.email, text: newMessage };
+    try {
+      await addDoc(
+        collection(db, "Chat", props.coin.id, "Comments"),
+        messageObject
+      );
+      console.log("submitted");
+    } catch (mistake) {
+      console.log(mistake);
+    }
   };
 
   return (
     <div>
       <h2 className="text-center">My prediction for {props.coin.name}:</h2>
-      <br />
+      <br></br>
       <form className="text-center" onSubmit={handleSubmit}>
-        <br />
-        <br />
+        <br></br>
+        <br></br>
         <div
           style={{
             display: "flex",
@@ -65,14 +91,17 @@ const ChatRoom = (props) => {
             Comment
           </button>
         </div>
-        <br />
-        <br />
+        <br></br>
+        <br></br>
         <div>
-          {messages.map((message) => (
-            <h3 className="text-center" key={message.id}>
-              {message.userDisplayName}: {message.message}
-            </h3>
-          ))}
+          {messages.map((message, index) => {
+            //const [userName, messageContent] = message.split(":");
+            return (
+              <h3 className="text-center" key={index}>
+                {user.displayName}: {message.text}
+              </h3>
+            );
+          })}
         </div>
       </form>
     </div>
