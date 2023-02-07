@@ -32,7 +32,7 @@
 
 ## Live site
 
-[Crypto-web](https://rich-simulator.netlify.app/)
+[Crypto-web](https://cryptocoin-web.netlify.app/)
 
 <a href="https://cryptocoin-web.netlify.app/"><img src="https://i.imgur.com/6CHz3DG.png" alt="Purple-and-Pink-Gradient-Modern-Birthday-Card-1" border="0" style="border-radius: 20px"></a>
 
