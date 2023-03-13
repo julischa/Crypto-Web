@@ -1,5 +1,5 @@
 body {
-  background-color: black!important;
+  background-color: #edeef3!important;
   margin-left: 100px;
 }
 
@@ -14,7 +14,7 @@ p {
   padding-top: 100px;
   font-size: 50px;
   font-weight: 600;
-  color: white;
+  color: black;
 }
  
 p.p1 {
@@ -23,7 +23,7 @@ margin-left: 185px;
 padding-top: 30px;
 font-size: 50px;
 font-weight: 600;
-color: white;
+color: black;
 animation: slideUp 1s ease-in-out;
 animation-fill-mode: both;
 }
@@ -35,7 +35,7 @@ margin-right: 185px;
 padding-top: 30px;
 font-size: 50px;
 font-weight: 600;
-color: white;
+color: black;
 animation: slideUp 1s ease-in-out 1s;
 animation-fill-mode: both;
 }
@@ -43,22 +43,24 @@ animation-fill-mode: both;
 .btn-container {
   display: flex; 
   justify-content: center;
+  color: white; 
 }
 
 button.register-btn {
 font-family: SpaceGrotesk;
 font-size: 35px;
 font-weight: 600;
-background-color: blue;
+background-color: aquamarine;
 margin-top: 50px;
 padding-left: 20px;
 padding-right: 20px;
-color: white;
+color: white!important;
 border: none;
 cursor: pointer;
 animation: appear 1s ease-in-out 2s;
 animation-fill-mode: both;
 }
+
 
 @keyframes slideUp {
 from {
@@ -88,13 +90,13 @@ h1 {
 h2 {
   font-family: SpaceGrotesk;
   font-size: 20px;
-  color: white;
+  color: black;
 }
 
 h3 {
   font-family: SpaceGrotesk;
   font-size: 10px;
-  color: white;
+  color: black;
 }
 
 .input-chat {
@@ -106,19 +108,19 @@ h3 {
 
 .input-chat::placeholder {
   font-family: SpaceGrotesk;
-  color: white;
+  color: black;
 }
 
 .inputbutton {
   font-family: SpaceGrotesk;
-  color: white;
+  color: black;
   background-color: blue;
   height: 40px;
   border-color: blue;
 }
 
 tr {
-  color: white;
+  color: black;
   font-family: SpaceGrotesk;
   font-size: 20px;
 
@@ -136,7 +138,6 @@ tr {
 }
 
 .header {
-  background-color: black;
   width: 100%;
   height: 90px;
 }
@@ -164,7 +165,6 @@ color: aquamarine;
   list-style: none;
   padding: 20px;
   font-size: 25px;
-  color: white;
 }
 
 .btn-2 {
@@ -188,7 +188,7 @@ color: aquamarine;
 a:link,
 a:visited {
   text-decoration: none;
-  color: white;
+    color: black;
 }
 
 a:hover {
@@ -205,8 +205,8 @@ a:active {
 
 ::-moz-selection,
 ::selection {
-  color: white;
-  background: blue;
+  color: black;
+  background: blue!important;
 }
 
 .table-hover tbody tr:hover {
@@ -398,4 +398,8 @@ top: -20px;
   }
 
 
+}
+
+#grey {
+  background-color: #edeef3;
 }

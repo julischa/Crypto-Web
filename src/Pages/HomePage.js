@@ -12,7 +12,9 @@ const HomePage = () => {
       </p>
       <div className="btn-container">
         <button className="register-btn">
-          <Link to="/coins">Browse Coins</Link>
+          <Link classN to="/coins">
+            Browse Coins
+          </Link>
         </button>
       </div>
     </div>

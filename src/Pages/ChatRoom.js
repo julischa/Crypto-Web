@@ -98,7 +98,7 @@ const ChatRoom = (props) => {
             //const [userName, messageContent] = message.split(":");
             return (
               <h3 className="text-center" key={index}>
-                {user.displayName}: {message.text}
+                {message.author}: {message.text}
               </h3>
             );
           })}

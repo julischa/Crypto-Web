@@ -6,9 +6,9 @@ const Navbar = () => {
   const { user, logout } = useContext(UserContext);
 
   return (
-    <nav className="header mb-5">
+    <nav id="grey" className="header mb-5">
       <div className="container">
-        <div className="nav-menu mx-auto">
+        <div id="grey" className="nav-menu mx-auto">
           <li>
             <Link to="/">Home</Link>
           </li>
