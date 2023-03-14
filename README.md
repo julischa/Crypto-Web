@@ -130,4 +130,4 @@ Google Sign-In API
 
 ## Author
 
-### [Juliane Schawert](https://github.com/julischa)
+### [Juli Schawert](https://github.com/julischa)
