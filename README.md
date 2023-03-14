@@ -22,7 +22,7 @@
       - [User Experience:](#user-experience-3)
 - [Getting Started](#getting-started)
   - [Author](#author)
-    - [Juliane Schawert](#juliane-schawert)
+    - [Juli Schawert](#juli-schawert)
 
 # Crypto Web
 
@@ -34,7 +34,7 @@
 
 [Crypto-web](https://cryptocoin-web.netlify.app/)
 
-<a href="https://cryptocoin-web.netlify.app/"><img src="https://i.imgur.com/6CHz3DG.png" alt="Purple-and-Pink-Gradient-Modern-Birthday-Card-1" border="0" style="border-radius: 20px"></a>
+<a href="https://cryptocoin-web.netlify.app/"><img src="https://i.imgur.com/6CHz3DG.png" alt="Crypto Web Github" border="0" style="border-radius: 20px"></a>
 
 ---
 
