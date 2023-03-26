@@ -21,18 +21,18 @@ const Register = () => {
 
   const handleCreateUser = (e) => {
     if (!isChecked) {
-      setError("Please acknowledge the terms and conditions");
+      setError("🚨 Please acknowledge the terms and conditions");
       return;
     }
     createUser(userName, email, password);
   };
 
   return (
-    <div className="form-container d-flex justify-content-center text-light">
+    <div className="form-container d-flex justify-content-center text-black">
       <div className="form-container p-5">
-        <h1 className="text-center text-light">Register for access</h1>
+        <h1 className="text-center text-black">Register for access</h1>
         <label
-          className="text-light"
+          className="text-black"
           htmlFor="userName"
           style={{ fontFamily: "SpaceGrotesk" }}
         >
@@ -47,7 +47,7 @@ const Register = () => {
           id="userName"
           onChange={handleUserNameChange}
         ></input>
-        <label className="text-light" htmlFor="email">
+        <label className="text-black" htmlFor="email">
           E-Mail
         </label>
         <input
@@ -63,7 +63,7 @@ const Register = () => {
         ></input>
         <label
           htmlFor="password"
-          className="text-light"
+          className="text-black"
           style={{
             fontFamily: "SpaceGrotesk",
           }}
@@ -88,10 +88,10 @@ const Register = () => {
             I acknowledge the terms and conditions
           </label>
         </div>
-        <button className="btn-2 my-4" onClick={handleCreateUser}>
+        <button className="btn-3 my-4" onClick={handleCreateUser}>
           Sign up now
         </button>
-        {error && <div style={{ color: "aquamarine" }}>{error}</div>}
+        {error && <div style={{ color: "#ed2939" }}>{error}</div>}
       </div>
     </div>
   );

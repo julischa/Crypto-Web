@@ -26,12 +26,12 @@ function Login() {
     <div>
       <div className="form-container d-flex justify-content-center text-light">
         <div className="form-container p-5">
-          <h1 className="text-center text-light">Sign into your account</h1>
+          <h1 className="text-center text-black">Sign into your account</h1>
           <form
             className="form"
             onSubmit={(event) => handleSubmit(event, email, password)}
           >
-            <div className="form-group">
+            <div className="form-group text-black">
               <label>Email</label>
               <input
                 className="form-control rounded-0 mb-2"
@@ -41,7 +41,7 @@ function Login() {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className="form-group text-black">
               <label>Password</label>
               <input
                 className="form-control rounded-0 mb-2"
@@ -51,9 +51,9 @@ function Login() {
                 required
               />
             </div>
-            <button className="btn-2 my-4">Log in</button>
+            <button className="btn-3 my-4">Log in</button>
             <div className="form-group">
-              <label className="me-4">No account? </label>
+              <label className="me-4 text-black">No account? </label>
               <Link to="/register" id="register-link">
                 Register now
               </Link>
