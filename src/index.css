@@ -50,7 +50,7 @@ button.register-btn {
 font-family: SpaceGrotesk;
 font-size: 35px;
 font-weight: 600;
-background-color: #8ddece;
+background-color: #a5f6e5;
 margin-top: 50px;
 padding-left: 20px;
 padding-right: 20px;
@@ -59,6 +59,11 @@ border: none;
 cursor: pointer;
 animation: appear 1s ease-in-out 2s;
 animation-fill-mode: both;
+}
+
+
+a:hover {
+  color:  rgb(158, 72, 244)!important;
 }
 
 
@@ -129,7 +134,7 @@ tr {
 }
 
 .change-positive {
-  color: #77d6c3;;
+  color: #8defdb;;
 }
 
 .star {
@@ -205,9 +210,6 @@ a:visited {
     color: black;
 }
 
-a:hover {
-  color: #8ddece;
-}
 
 a:active {
   color: #8ddece;;
